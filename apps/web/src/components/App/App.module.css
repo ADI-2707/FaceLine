@@ -1,50 +1,40 @@
-.container {
+.appLayout {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background: var(--bg-canvas, #0f172a);
+  color: var(--text-primary, #f8fafc);
+  overflow: hidden;
+  position: relative;
+}
+
+.mainArea {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.emptyState {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  padding: 1.5rem;
-  background-color: var(--color-bg-canvas);
+  gap: 12px;
+  color: var(--text-secondary, #94a3b8);
 }
 
-.card {
-  width: 100%;
-  max-width: 480px;
-  padding: 2rem;
-  background: var(--color-glass-bg);
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--color-glass-border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-glass);
-  text-align: center;
+.emptyIcon {
+  font-size: 48px;
 }
 
-.title {
-  font-size: var(--font-size-2xl);
-  font-weight: 700;
-  color: var(--color-primary-azure);
-  margin-bottom: 0.5rem;
-}
-
-.subtitle {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-muted);
-  margin-bottom: 1.5rem;
-}
-
-.button {
-  min-height: var(--touch-target-mobile);
-  padding: 0.75rem 1.5rem;
-  background-color: var(--color-primary-azure);
-  color: #ffffff;
-  font-weight: 600;
-  border: none;
-  border-radius: var(--radius-md);
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.button:hover {
-  background-color: var(--color-primary-hover);
+.dockWrapper {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
 }
