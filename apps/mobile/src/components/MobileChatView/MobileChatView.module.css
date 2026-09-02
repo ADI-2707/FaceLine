@@ -1,0 +1,10 @@
+.container {
+  flex: 1;
+  background: #0f172a;
+}
+
+.modeBar {
+  flex-direction: row;
+  padding: 8px 16px;
+  background: rgba(15, 23, 42, 0.8);
+}
