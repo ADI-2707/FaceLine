@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
-import { loadAvatarModel, LoadedAvatarModel } from '../../utils/avatarLoader';
-import { ExpressionController, ExpressionType } from './expressionController';
-import { GestureController, GestureType } from './gestureController';
+import { loadAvatarModel, LoadedAvatarModel } from '../../utils/avatarLoader.js';
+import { ExpressionController, ExpressionType } from './expressionController.js';
+import { GestureController, GestureType } from './gestureController.js';
 import styles from './AvatarCanvas.module.css';
 
 export interface AvatarCanvasProps {
@@ -37,13 +37,17 @@ export const AvatarCanvas: React.FC<AvatarCanvasProps> = ({
     camera.position.set(0, 1.42, 1.05);
     camera.lookAt(0, 1.35, 0);
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(width, height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.1;
-
-    container.appendChild(renderer.domElement);
+    let renderer: THREE.WebGLRenderer | undefined;
+    try {
+      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer.setSize(width, height);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      renderer.toneMappingExposure = 1.1;
+      container.appendChild(renderer.domElement);
+    } catch {
+      renderer = undefined;
+    }
 
     const keyLight = new THREE.DirectionalLight(0xffffff, 1.5);
     keyLight.position.set(-1, 2, 2);
@@ -67,7 +71,7 @@ export const AvatarCanvas: React.FC<AvatarCanvasProps> = ({
     setIsLoading(true);
 
     loadAvatarModel(avatarGlbUrl)
-      .then((loaded) => {
+      .then((loaded: LoadedAvatarModel) => {
         if (isDisposed) return;
         loadedModelRef.current = loaded;
         scene.add(loaded.gltf.scene);
@@ -96,13 +100,15 @@ export const AvatarCanvas: React.FC<AvatarCanvasProps> = ({
         }
       }
 
-      renderer.render(scene, camera);
+      if (renderer) {
+        renderer.render(scene, camera);
+      }
     };
 
     animate();
 
     const handleResize = () => {
-      if (!container) return;
+      if (!container || !renderer) return;
       const w = container.clientWidth;
       const h = container.clientHeight;
       camera.aspect = w / h;
@@ -116,10 +122,12 @@ export const AvatarCanvas: React.FC<AvatarCanvasProps> = ({
       isDisposed = true;
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener('resize', handleResize);
-      if (renderer.domElement && container.contains(renderer.domElement)) {
+      if (renderer && renderer.domElement && container.contains(renderer.domElement)) {
         container.removeChild(renderer.domElement);
       }
-      renderer.dispose();
+      if (renderer) {
+        renderer.dispose();
+      }
     };
   }, [avatarGlbUrl]);
 
