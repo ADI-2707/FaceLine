@@ -32,6 +32,9 @@ importers:
       expo:
         specifier: 52.0.37
         version: 52.0.37(@babel/core@7.26.9(supports-color@8.1.1))(@babel/preset-env@7.29.7(@babel/core@7.26.9(supports-color@8.1.1))(supports-color@8.1.1))(@expo/metro-runtime@4.0.1(react-native@0.76.7(@babel/core@7.26.9(supports-color@8.1.1))(@babel/preset-env@7.29.7(@babel/core@7.26.9(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@18.3.18)(react@18.3.1)(supports-color@8.1.1)))(react-native-webview@13.12.5(react-native@0.76.7(@babel/core@7.26.9(supports-color@8.1.1))(@babel/preset-env@7.29.7(@babel/core@7.26.9(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@18.3.18)(react@18.3.1)(supports-color@8.1.1))(react@18.3.1))(react-native@0.76.7(@babel/core@7.26.9(supports-color@8.1.1))(@babel/preset-env@7.29.7(@babel/core@7.26.9(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@18.3.18)(react@18.3.1)(supports-color@8.1.1))(react@18.3.1)(supports-color@8.1.1)
+      expo-modules-core:
+        specifier: 2.0.6
+        version: 2.0.6
       expo-notifications:
         specifier: 0.29.13
         version: 0.29.13(6aef7a75e05ad011a451c3da1594d8ba)
@@ -2844,6 +2847,9 @@ packages:
   expo-modules-autolinking@2.0.8:
     resolution: {integrity: sha512-DezgnEYFQYic8hKGhkbztBA3QUmSftjaNDIKNAtS2iGJmzCcNIkatjN2slFDSWjSTNo8gOvPQyMKfyHWFvLpOQ==}
     hasBin: true
+
+  expo-modules-core@2.0.6:
+    resolution: {integrity: sha512-IsFDn8TqhmnxNUWxkhyVqJ07x/vLlaUN1f2R4eYaP9NFoSWb0c2bTf99a03NGxnfuQ9G7Jrzu+VafSHzCKUxxQ==}
 
   expo-modules-core@2.2.2:
     resolution: {integrity: sha512-SgjK86UD89gKAscRK3bdpn6Ojfs/KU4GujtuFx1wm4JaBjmXH4aakWkItkPlAV2pjIiHJHWQbENL9xjbw/Qr/g==}
@@ -8147,7 +8153,7 @@ snapshots:
   '@testing-library/dom@10.4.1':
     dependencies:
       '@babel/code-frame': 7.29.7
-      '@babel/runtime': 7.29.7
+      '@babel/runtime': 7.26.9
       '@types/aria-query': 5.0.4
       aria-query: 5.3.0
       dom-accessibility-api: 0.5.16
@@ -9512,6 +9518,10 @@ snapshots:
       fs-extra: 9.1.0
       require-from-string: 2.0.2
       resolve-from: 5.0.0
+
+  expo-modules-core@2.0.6:
+    dependencies:
+      invariant: 2.2.4
 
   expo-modules-core@2.2.2:
     dependencies:
