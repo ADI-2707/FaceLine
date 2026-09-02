@@ -3,3 +3,5 @@ packages:
   - 'server'
   - 'shared'
   - 'avatar-assets'
+allowBuilds:
+  esbuild: true
