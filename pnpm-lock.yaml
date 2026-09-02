@@ -196,6 +196,10 @@ importers:
         version: 3.0.7(@types/node@22.13.4)(jsdom@26.0.0(supports-color@8.1.1))(lightningcss@1.27.0)(supports-color@8.1.1)(terser@5.51.2)(tsx@4.19.3)
 
   shared:
+    dependencies:
+      '@matrix-org/olm':
+        specifier: 3.2.15
+        version: 3.2.15
     devDependencies:
       typescript:
         specifier: 5.7.3
@@ -1445,6 +1449,9 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
+
+  '@matrix-org/olm@3.2.15':
+    resolution: {integrity: sha512-S7lOrndAK9/8qOtaTq/WhttJC/o4GAzdfK0MUPpo8ApzsJEC0QjtwrkC3KBXdFP1cD1MXi/mlKR7aaoVMKgs6Q==}
 
   '@mediapipe/tasks-vision@0.10.17':
     resolution: {integrity: sha512-CZWV/q6TTe8ta61cZXjfnnHsfWIdFhms03M9T7Cnd5y2mdpylJM0rF1qRq+wsQVRMLz1OYPVEBU9ph2Bx8cxrg==}
@@ -7522,6 +7529,8 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.6.0
+
+  '@matrix-org/olm@3.2.15': {}
 
   '@mediapipe/tasks-vision@0.10.17': {}
 
