@@ -2,7 +2,7 @@ import { Router, Request, Response } from 'express';
 import { authMiddleware } from '../middleware/auth.js';
 import { supabaseAdmin } from '../db/supabase.js';
 
-export const conversationsRouter = Router();
+export const conversationsRouter: Router = Router();
 
 conversationsRouter.use(authMiddleware);
 
