@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { mobileTokens } from '../../theme/tokens.js';
+import { mobileTokens } from '../../theme/tokens';
 
 describe('Mobile Tokens', () => {
   it('should have correct touch target and color tokens', () => {

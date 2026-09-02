@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { mobileTokens } from '../../theme/tokens.js';
+import { mobileTokens } from '../../theme/tokens';
 
 export const MobileApp: React.FC = () => {
   return (
