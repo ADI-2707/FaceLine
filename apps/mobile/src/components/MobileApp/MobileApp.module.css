@@ -1,13 +1,4 @@
 .container {
   flex: 1;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-  background-color: var(--color-bg-canvas);
-}
-
-.title {
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--color-primary-azure);
+  background: #0f172a;
 }

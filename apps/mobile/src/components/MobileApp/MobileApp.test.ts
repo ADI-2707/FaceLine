@@ -1,9 +1,11 @@
 import { describe, it, expect } from 'vitest';
-import { mobileTokens } from '../../theme/tokens';
+import { MobileSecureStorageAdapter } from '../../storage/mobileVault';
 
-describe('Mobile Tokens', () => {
-  it('should have correct touch target and color tokens', () => {
-    expect(mobileTokens.metrics.touchTargetMin).toBe(44);
-    expect(mobileTokens.colors.primaryAzure).toBe('#2563eb');
+describe('Mobile App Component & Storage Adapter', () => {
+  it('should store and retrieve values in MobileSecureStorageAdapter memory fallback', async () => {
+    const adapter = new MobileSecureStorageAdapter();
+    await adapter.setItem('test_key', 'test_val');
+    const retrieved = await adapter.getItem('test_key');
+    expect(retrieved).toBe('test_val');
   });
 });

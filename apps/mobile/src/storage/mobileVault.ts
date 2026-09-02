@@ -1,4 +1,4 @@
-import { StorageAdapter } from '@faceline/shared';
+import type { StorageAdapter } from '@faceline/shared';
 
 export class MobileSecureStorageAdapter implements StorageAdapter {
   private memoryStore = new Map<string, string>();

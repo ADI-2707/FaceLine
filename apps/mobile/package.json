@@ -22,6 +22,7 @@
     "expo-modules-core": "2.0.6",
     "expo-notifications": "0.29.13",
     "expo-screen-capture": "7.0.1",
+    "expo-secure-store": "14.0.1",
     "expo-status-bar": "2.0.1",
     "fbjs": "3.0.5",
     "react": "18.3.1",
