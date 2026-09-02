@@ -32,7 +32,14 @@ export async function encryptMediaFile(fileBuffer: ArrayBuffer): Promise<Encrypt
     ['encrypt', 'decrypt']
   );
 
-  const iv = cryptoObj.getRandomValues(new Uint8Array(12));
+  const iv = new Uint8Array(12);
+  if (typeof cryptoObj.getRandomValues === 'function') {
+    (cryptoObj as Crypto).getRandomValues(iv);
+  } else {
+    const nodeCrypto = await import('crypto');
+    nodeCrypto.randomFillSync(iv);
+  }
+
   const ciphertextBuffer = await cryptoObj.subtle.encrypt(
     { name: 'AES-GCM', iv },
     aesKey,
